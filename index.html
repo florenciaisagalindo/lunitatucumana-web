@@ -4,32 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lunita Tucumana LLC</title>
+    <link rel="icon" type="image/png" href="lunita_tucumana_logo.png">
     <style>
-        /* Eliminamos los márgenes por defecto del navegador */
         html, body {
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Evita el scroll horizontal */
-            background-color: #ffffff; /* Fondo blanco */
+            overflow-x: hidden;
+            background-color: #ffffff; 
         }
 
-        /* 1. EL CONTENEDOR PRINCIPAL (La "ventana" que corta la barra) */
         .canva-clipper {
             width: 100%;
-            /* Esta es la proporción de tu diseño SIN la barra negra.
-               223.5% es el número mágico que debería cortar la barra */
             padding-top: 223.5%; 
             position: relative;
-            overflow: hidden; /* ¡Importante! Esto corta la barra negra */
+            overflow: hidden; 
         }
 
-        /* 2. EL IFRAME DE CANVA (Está dentro del contenedor) */
         .canva-clipper iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%; /* Ocupa todo el contenedor */
+            height: 100%; 
             border: none;
             margin: 0;
             padding: 0;
@@ -38,7 +34,6 @@
 </head>
 <body>
 
-    <!-- Contenedor que recorta la barra -->
     <div class="canva-clipper">
         <iframe loading="lazy" 
                 src="https://www.canva.com/design/DAHQPlNU6Iw/e4GbFjtPbIgW0Pr-1Z_zAg/view?embed" 
