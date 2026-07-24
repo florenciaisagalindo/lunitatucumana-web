@@ -2,21 +2,20 @@
   html, body {
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Ajusta este color al fondo de tu web si es oscuro */
+    background-color: #ffffff; /* Fondo blanco para que no haya contraste arriba/abajo */
   }
 
   .canva-wrapper {
     position: relative;
     width: 100%;
-    /* Reducimos ligeramente la proporción de altura para recortar la barra inferior de Canva */
-    padding-top: 220%; 
+    padding-top: 225%; /* Proporción original para que no apriete el footer */
     overflow: hidden;
   }
 
   .canva-wrapper iframe {
     position: absolute;
     width: 100%;
-    height: 108%; /* Un poco más alto para empujar la barra fuera del campo visible */
+    height: 105%; /* Solo lo suficiente para empujar la barra fuera de pantalla */
     top: 0;
     left: 0;
     border: none;
