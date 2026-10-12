@@ -1,43 +1,53 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lunita Tucumana LLC — Reventa autorizada de marcas en Amazon · Miami, FL</title>
-  <meta name="description" content="Lunita Tucumana es una LLC registrada en Florida especializada en revender productos de marca en Amazon, respetando su precio, sus publicaciones y su imagen.">
+  <title>Lunita Tucumana LLC — Authorized Amazon reseller for brands · Miami, FL</title>
+  <meta name="description" content="Lunita Tucumana is a registered Florida LLC specializing in reselling branded products on Amazon while protecting each brand's pricing, listings and image.">
   <meta name="theme-color" content="#14213D">
 
-  <!-- Open Graph (cómo se ve el link al compartirlo) -->
+  <!-- Open Graph (how the link looks when shared) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Lunita Tucumana LLC — Cuidamos tu marca como si fuera nuestra">
-  <meta property="og:description" content="Reventa autorizada de productos de marca en Amazon, desde Miami, Florida.">
+  <meta property="og:title" content="Lunita Tucumana LLC — We treat your brand like it's our own">
+  <meta property="og:description" content="Authorized Amazon reselling for brands, from Miami, Florida.">
   <meta property="og:url" content="https://lunitatucumana.com/">
   <meta property="og:image" content="https://lunitatucumana.com/img/fundadores.jpg">
   <link rel="canonical" href="https://lunitatucumana.com/">
 
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 
-  <!-- Tipografías: Bricolage Grotesque (títulos) + Figtree (texto) -->
+  <!-- Fonts: Bricolage Grotesque (headings) + Figtree (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Applies the saved language before the page paints, to avoid a flash of English -->
+  <script>
+    try {
+      if (localStorage.getItem('lt-lang') === 'es' || /[?&]lang=es/.test(location.search)) {
+        document.documentElement.classList.add('lang-pending');
+        setTimeout(function () { document.documentElement.classList.remove('lang-pending'); }, 1500);
+      }
+    } catch (e) {}
+  </script>
 </head>
 <body>
 
-<!-- Íconos reutilizables -->
+<!-- Reusable icons -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-moon" viewBox="0 0 40 40"><path d="M24 9a11.5 11.5 0 1 0 7.2 19.6A9.2 9.2 0 1 1 24 9z" fill="currentColor"/><circle cx="28.5" cy="12.5" r="1.4" fill="currentColor"/></symbol>
 </svg>
 
-<a class="skip-link" href="#main">Saltar al contenido</a>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
 <!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#inicio" class="brand" aria-label="Lunita Tucumana, inicio">
+    <a href="#inicio" class="brand" aria-label="Lunita Tucumana, home" data-i18n-aria="brandAria">
       <img src="img/logo.svg" width="40" height="40" alt="">
       <span class="brand-text">
         <span class="brand-name">lunita tucumana</span>
@@ -45,16 +55,21 @@
       </span>
     </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
+    <div class="header-actions">
+      <button class="lang-switch" type="button" aria-label="Ver el sitio en español" lang="es">
+        <span class="lang-opt" data-lang="en">EN</span><span class="lang-sep" aria-hidden="true">|</span><span class="lang-opt" data-lang="es">ES</span>
+      </button>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
 
-    <nav id="nav" class="nav" aria-label="Principal">
-      <a href="#nosotros">Nosotros</a>
-      <a href="#compromisos">Para marcas</a>
-      <a href="#proceso">Cómo trabajamos</a>
-      <a href="#preguntas">Preguntas</a>
-      <a href="#contacto" class="btn btn--luna">Trabajemos juntos</a>
+    <nav id="nav" class="nav" aria-label="Main" data-i18n-aria="navAria">
+      <a href="#nosotros" data-i18n="navAbout">About us</a>
+      <a href="#compromisos" data-i18n="navBrands">For brands</a>
+      <a href="#proceso" data-i18n="navProcess">How we work</a>
+      <a href="#preguntas" data-i18n="navFaq">FAQ</a>
+      <a href="#contacto" class="btn btn--luna" data-i18n="navCta">Work with us</a>
     </nav>
   </div>
 </header>
@@ -68,195 +83,196 @@
 
   <div class="container hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow eyebrow--luna">Reventa autorizada en Amazon</p>
-      <h1>Cuidamos tu marca como si fuera <span>nuestra.</span></h1>
-      <p class="hero-lead">Somos una empresa registrada en Florida especializada en revender productos de marca en Amazon, respetando su precio, sus publicaciones y su imagen. Trato directo, documentación en regla y compromiso de largo plazo.</p>
+      <p class="eyebrow eyebrow--luna" data-i18n="heroEyebrow">Authorized Amazon reseller</p>
+      <h1 data-i18n="heroTitle">We treat your brand like it's <span>our own.</span></h1>
+      <p class="hero-lead" data-i18n="heroLead">We're a registered Florida company specializing in reselling branded products on Amazon, while protecting your pricing, your listings and your image. Direct communication, documentation in order and a long-term commitment.</p>
       <div class="hero-actions">
-        <a href="#contacto" class="btn btn--luna">Proponer una alianza</a>
-        <a href="#documentacion" class="btn btn--ghost">Ver nuestra documentación</a>
+        <a href="#contacto" class="btn btn--luna" data-i18n="heroCta1">Propose a partnership</a>
+        <a href="#documentacion" class="btn btn--ghost" data-i18n="heroCta2">See our documentation</a>
       </div>
     </div>
 
     <aside class="cred-card" aria-labelledby="cred-title">
       <div class="cred-head">
-        <span id="cred-title" class="cred-title">Credenciales de la empresa</span>
+        <span id="cred-title" class="cred-title" data-i18n="credTitle">Company credentials</span>
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2F5D50" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
       </div>
       <dl class="cred-list">
-        <div class="cred-row"><dt>Razón social</dt><dd>Lunita Tucumana LLC</dd></div>
-        <div class="cred-row"><dt>Registro</dt><dd>Florida LLC · N° L25000005577</dd></div>
-        <div class="cred-row"><dt>Estado</dt><dd>Activa desde enero de 2025</dd></div>
-        <div class="cred-row"><dt>Certificado de reventa</dt><dd>Vigente · se envía a pedido</dd></div>
-        <div class="cred-row"><dt>EIN</dt><dd>Disponible en formulario W-9</dd></div>
-        <div class="cred-row"><dt>Sede</dt><dd>Miami, Florida, EE. UU.</dd></div>
+        <div class="cred-row"><dt data-i18n="credName">Legal name</dt><dd>Lunita Tucumana LLC</dd></div>
+        <div class="cred-row"><dt data-i18n="credReg">Registration</dt><dd data-i18n="credRegVal">Florida LLC · No. L25000005577</dd></div>
+        <div class="cred-row"><dt data-i18n="credStatus">Status</dt><dd data-i18n="credStatusVal">Active since January 2025</dd></div>
+        <div class="cred-row"><dt data-i18n="credResale">Resale certificate</dt><dd data-i18n="credResaleVal">Valid · provided on request</dd></div>
+        <div class="cred-row"><dt>EIN</dt><dd data-i18n="credEinVal">Available on Form W-9</dd></div>
+        <div class="cred-row"><dt data-i18n="credHq">Headquarters</dt><dd data-i18n="credHqVal">Miami, Florida, USA</dd></div>
       </dl>
-      <p class="cred-note">Podés verificar nuestro registro en <a href="https://search.sunbiz.org/Inquiry/CorporationSearch/ByDocumentNumber" target="_blank" rel="noopener">Sunbiz.org</a> con el N° L25000005577. Enviamos copia de toda la documentación dentro de las 24 h hábiles de tu solicitud.</p>
+      <p class="cred-note" data-i18n="credNote">You can verify our registration on <a href="https://search.sunbiz.org/Inquiry/CorporationSearch/ByDocumentNumber" target="_blank" rel="noopener">Sunbiz.org</a> with document No. L25000005577. We send copies of all documentation within one business day of your request.</p>
     </aside>
   </div>
 </section>
 
-<!-- ================= GARANTÍAS ================= -->
-<section class="trust" aria-label="Garantías">
+<!-- ================= TRUST STRIP ================= -->
+<section class="trust" aria-label="Guarantees" data-i18n-aria="trustAria">
   <div class="container trust-grid">
-    <div class="trust-item"><svg width="22" height="22" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Empresa registrada</strong> en el Estado de Florida</span></div>
-    <div class="trust-item"><svg width="22" height="22" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Certificado de reventa</strong> vigente</span></div>
-    <div class="trust-item"><svg width="22" height="22" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Respeto de MAP</strong> y políticas de marca</span></div>
-    <div class="trust-item"><svg width="22" height="22" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span><strong>Atención en</strong> español e inglés</span></div>
+    <div class="trust-item"><svg width="22" height="22" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust1"><strong>Registered company</strong> in the State of Florida</span></div>
+    <div class="trust-item"><svg width="22" height="22" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust2"><strong>Valid resale</strong> certificate</span></div>
+    <div class="trust-item"><svg width="22" height="22" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust3"><strong>MAP compliance</strong> and brand policies</span></div>
+    <div class="trust-item"><svg width="22" height="22" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust4"><strong>Service in</strong> English and Spanish</span></div>
   </div>
 </section>
 
-<!-- ================= NOSOTROS ================= -->
+<!-- ================= ABOUT ================= -->
 <section id="nosotros" class="container section about">
   <figure class="about-photo">
     <picture>
       <source srcset="img/fundadores.webp" type="image/webp">
-      <img src="img/fundadores.jpg" width="900" height="1200" loading="lazy" alt="Los fundadores de Lunita Tucumana en su oficina de Miami">
+      <img src="img/fundadores.jpg" width="900" height="1200" loading="lazy" alt="Florencia Galindo and Agustín Galvez, founders of Lunita Tucumana" data-i18n-alt="photoAlt">
     </picture>
-    <figcaption><svg width="18" height="18" style="color:#F2D58A" aria-hidden="true"><use href="#i-moon"/></svg>Los fundadores, en Miami</figcaption>
+    <figcaption><svg width="18" height="18" style="color:#F2D58A" aria-hidden="true"><use href="#i-moon"/></svg><span data-i18n="photoBadge">Est. 2025 · Miami, FL</span></figcaption>
   </figure>
 
   <div class="about-copy">
-    <p class="eyebrow">Quiénes somos</p>
-    <h2>Somos los fundadores, y atendemos cada marca en persona.</h2>
-    <p>Lunita Tucumana es una empresa con sede en Miami dedicada a la distribución y reventa de productos de marca. Trabajamos con marcas que buscan un socio serio, ordenado y presente, que cuide su producto tanto como ellas.</p>
-    <p>No somos un intermediario anónimo: cuando trabajás con nosotros, hablás directamente con quienes toman las decisiones, responden rápido y rinden cuentas.</p>
+    <p class="eyebrow" data-i18n="aboutEyebrow">Who we are</p>
+    <h2 data-i18n="aboutTitle">We're the founders, and we handle every brand personally.</h2>
+    <p data-i18n="aboutP1">Lunita Tucumana is a Miami-based company dedicated to the distribution and resale of branded products. We work with brands looking for a reliable, organized and responsive partner who cares for their products as much as they do.</p>
+    <p data-i18n="aboutP2">We're not an anonymous middleman: when you work with us, you speak directly with the people who make the decisions, respond quickly and are accountable.</p>
     <div class="founders">
-      <div class="founder"><strong>Florencia Galindo</strong><span>Cofundadora</span></div>
-      <div class="founder"><strong>Agustín Galvez</strong><span>Cofundador</span></div>
+      <div class="founder"><strong>Florencia Galindo</strong><span data-i18n="cofounderF">Co-founder</span></div>
+      <div class="founder"><strong>Agustín Galvez</strong><span data-i18n="cofounderM">Co-founder</span></div>
     </div>
   </div>
 </section>
 
-<!-- ================= COMPROMISOS ================= -->
+<!-- ================= COMMITMENTS ================= -->
 <section id="compromisos" class="commitments">
   <div class="container section">
     <div class="section-head">
-      <p class="eyebrow">Nuestro compromiso con las marcas</p>
-      <h2>Lo que podés esperar de nosotros, por escrito.</h2>
+      <p class="eyebrow" data-i18n="commitEyebrow">Our commitment to brands</p>
+      <h2 data-i18n="commitTitle">What you can expect from us, in writing.</h2>
     </div>
     <div class="cards">
       <article class="card">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>
-        <h3>Respeto de precios</h3>
-        <p>Cumplimos tu política de precio mínimo anunciado (MAP). Nunca rematamos tu producto ni competimos contra tus distribuidores.</p>
+        <h3 data-i18n="c1Title">Price integrity</h3>
+        <p data-i18n="c1Text">We follow your minimum advertised price (MAP) policy. We never dump your product or compete against your distributors.</p>
       </article>
       <article class="card">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/></svg>
-        <h3>Protección de tu imagen</h3>
-        <p>En Amazon vendemos sobre tus publicaciones oficiales: no creamos listings duplicados, no modificamos tu contenido y respetamos tu Brand Registry.</p>
+        <h3 data-i18n="c2Title">Brand protection</h3>
+        <p data-i18n="c2Text">On Amazon we sell on your official listings: no duplicate listings, no changes to your content, and full respect for your Brand Registry.</p>
       </article>
       <article class="card">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
-        <h3>Producto original, bien tratado</h3>
-        <p>Compramos directo a la marca o a su distribuidor oficial. Almacenamos y entregamos en empaque original, sin alteraciones.</p>
+        <h3 data-i18n="c3Title">Authentic products, handled with care</h3>
+        <p data-i18n="c3Text">We buy directly from the brand or its authorized distributor. We store and ship in original, unaltered packaging.</p>
       </article>
       <article class="card">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg>
-        <h3>Pagos claros y puntuales</h3>
-        <p>Trabajamos con pago anticipado o con los términos que acordemos. Facturación ordenada y comunicación directa.</p>
+        <h3 data-i18n="c4Title">Clear, on-time payments</h3>
+        <p data-i18n="c4Text">We work with prepayment or the terms we agree on. Organized invoicing and direct communication.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ================= PROCESO ================= -->
+<!-- ================= PROCESS ================= -->
 <section id="proceso" class="container section process">
   <div class="section-head">
-    <p class="eyebrow">Cómo trabajamos</p>
-    <h2>Abrir una cuenta con nosotros es simple.</h2>
+    <p class="eyebrow" data-i18n="procEyebrow">How we work</p>
+    <h2 data-i18n="procTitle">Opening an account with us is simple.</h2>
   </div>
   <ol class="steps">
-    <li class="step"><span class="step-num">01</span><h3>Conversación inicial</h3><p>Nos contás sobre tu marca y te contamos dónde y cómo la venderíamos.</p></li>
-    <li class="step"><span class="step-num">02</span><h3>Documentación</h3><p>Enviamos W-9, certificado de reventa y completamos tu formulario de alta.</p></li>
-    <li class="step"><span class="step-num">03</span><h3>Primer pedido</h3><p>Acordamos volumen, condiciones de pago y logística de entrega en Miami.</p></li>
-    <li class="step"><span class="step-num">04</span><h3>Seguimiento</h3><p>Te compartimos cómo se mueve tu producto y planificamos juntos la reposición.</p></li>
+    <li class="step"><span class="step-num">01</span><h3 data-i18n="s1Title">Intro call</h3><p data-i18n="s1Text">You tell us about your brand, and we explain where and how we'd sell it.</p></li>
+    <li class="step"><span class="step-num">02</span><h3 data-i18n="s2Title">Documentation</h3><p data-i18n="s2Text">We send our W-9 and resale certificate and complete your new-account form.</p></li>
+    <li class="step"><span class="step-num">03</span><h3 data-i18n="s3Title">First order</h3><p data-i18n="s3Text">We agree on volume, payment terms and delivery logistics to Miami.</p></li>
+    <li class="step"><span class="step-num">04</span><h3 data-i18n="s4Title">Ongoing follow-up</h3><p data-i18n="s4Text">We share how your product is performing and plan restocking together.</p></li>
   </ol>
 </section>
 
-<!-- ================= DOCUMENTACIÓN Y CANALES ================= -->
+<!-- ================= DOCUMENTATION & CHANNELS ================= -->
 <section id="documentacion" class="docs">
   <div class="container docs-grid">
     <div class="docs-col">
-      <p class="eyebrow eyebrow--luna">Documentación disponible</p>
-      <h2>Todo lo que tu equipo de cuentas necesita para darnos de alta.</h2>
+      <p class="eyebrow eyebrow--luna" data-i18n="docsEyebrow">Available documentation</p>
+      <h2 data-i18n="docsTitle">Everything your accounts team needs to set us up.</h2>
       <ul class="dash-list">
-        <li>Artículos de organización de la LLC (Florida)</li>
-        <li>Certificado de reventa (Florida Annual Resale Certificate)</li>
-        <li>Formulario W-9 con EIN</li>
-        <li>Referencias comerciales y bancarias, si se requieren</li>
-        <li>Formulario de alta de cliente o solicitud de crédito de tu empresa</li>
+        <li data-i18n="d1">LLC Articles of Organization (Florida)</li>
+        <li data-i18n="d2">Florida Annual Resale Certificate</li>
+        <li data-i18n="d3">Form W-9 with EIN</li>
+        <li data-i18n="d4">Trade and bank references, if required</li>
+        <li data-i18n="d5">Your company's new-account or credit application</li>
       </ul>
     </div>
 
     <div class="docs-col">
-      <p class="eyebrow eyebrow--luna">Dónde vendemos</p>
+      <p class="eyebrow eyebrow--luna" data-i18n="whereEyebrow">Where we sell</p>
       <div class="amazon-card">
-        <div class="amazon-head"><strong>Amazon</strong><span>Nuestro canal principal</span></div>
+        <div class="amazon-head"><strong>Amazon</strong><span data-i18n="amzMain">Our main channel</span></div>
         <ul class="check-list">
-          <li><svg width="20" height="20" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg>Solo listamos tu marca con tu autorización expresa</li>
-          <li><svg width="20" height="20" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg>Precio siempre alineado con tu MAP</li>
-          <li><svg width="20" height="20" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg>Sin listings duplicados ni cambios a tu contenido</li>
-          <li><svg width="20" height="20" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg>Atención al cliente y reseñas cuidadas como propias</li>
+          <li><svg width="20" height="20" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="a1">We only list your brand with your express authorization</span></li>
+          <li><svg width="20" height="20" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="a2">Pricing always aligned with your MAP</span></li>
+          <li><svg width="20" height="20" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="a3">No duplicate listings or changes to your content</span></li>
+          <li><svg width="20" height="20" style="color:#2F5D50" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="a4">Customer service and reviews handled as if they were our own</span></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= PREGUNTAS ================= -->
+<!-- ================= FAQ ================= -->
 <section id="preguntas" class="container section faq">
   <div class="section-head">
-    <p class="eyebrow">Preguntas de proveedores</p>
-    <h2>Lo que suelen preguntarnos.</h2>
+    <p class="eyebrow" data-i18n="faqEyebrow">Supplier questions</p>
+    <h2 data-i18n="faqTitle">What brands usually ask us.</h2>
   </div>
   <div class="faq-list">
     <details open>
-      <summary>¿Son una empresa legalmente constituida en EE. UU.?</summary>
-      <p>Sí. Lunita Tucumana es una LLC registrada en el Estado de Florida, con EIN federal y certificado de reventa vigente. Te enviamos los comprobantes cuando los pidas.</p>
+      <summary data-i18n="q1">Are you a legally registered U.S. company?</summary>
+      <p data-i18n="r1">Yes. Lunita Tucumana is an LLC registered in the State of Florida, with a federal EIN and a valid resale certificate. We'll send you the documents whenever you ask.</p>
     </details>
     <details>
-      <summary>¿Respetan nuestra política de precios?</summary>
-      <p>Siempre. Firmamos tu acuerdo de MAP o de distribución y lo aplicamos en todos nuestros canales.</p>
+      <summary data-i18n="q2">Do you follow our pricing policy?</summary>
+      <p data-i18n="r2">Always. We sign your MAP or distribution agreement and apply it across all our channels.</p>
     </details>
     <details>
-      <summary>¿Cómo cuidan nuestra marca en Amazon?</summary>
-      <p>Vendemos sobre tus publicaciones oficiales, respetamos tu MAP y tu Brand Registry, y no listamos nada sin tu autorización. Si preferís limitar productos o regiones, lo acordamos por escrito antes del primer pedido.</p>
+      <summary data-i18n="q3">How do you protect our brand on Amazon?</summary>
+      <p data-i18n="r3">We sell on your official listings, follow your MAP and Brand Registry, and never list anything without your authorization. If you'd like to limit products or regions, we agree on it in writing before the first order.</p>
     </details>
     <details>
-      <summary>¿Cómo manejan los pagos?</summary>
-      <p>Podemos comenzar con pago anticipado y, a medida que crece la relación, evaluar términos de crédito según tus políticas.</p>
+      <summary data-i18n="q4">How do you handle payments?</summary>
+      <p data-i18n="r4">We can start with prepayment and, as the relationship grows, discuss credit terms under your policies.</p>
     </details>
   </div>
 </section>
 
-<!-- ================= CONTACTO ================= -->
+<!-- ================= CONTACT ================= -->
 <section id="contacto" class="contact">
   <div class="container section contact-grid">
     <div class="contact-info">
-      <p class="eyebrow">Contacto</p>
-      <h2>Contanos sobre tu marca. Te respondemos en un día hábil.</h2>
+      <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+      <h2 data-i18n="contactTitle">Tell us about your brand. We reply within one business day.</h2>
       <div class="contact-list">
         <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:info@lunitatucumana.com">info@lunitatucumana.com</a></div>
-        <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><a href="tel:+17862965105">+1 (786) 296-5105</a> · también por <a href="https://wa.me/17862965105" target="_blank" rel="noopener">WhatsApp</a></span></div>
+        <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span data-i18n="phone"><a href="tel:+17862965105">+1 (786) 296-5105</a> · also on <a href="https://wa.me/17862965105" target="_blank" rel="noopener">WhatsApp</a></span></div>
         <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Miami, Florida 33136</span></div>
-        <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Lunes a viernes, 9 a 18 h (hora del Este)</span></div>
+        <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="hours">Monday to Friday, 9 a.m. – 6 p.m. (Eastern Time)</span></div>
       </div>
     </div>
 
-    <!-- Formulario: envía a info@lunitatucumana.com mediante FormSubmit (funciona en GitHub Pages) -->
+    <!-- Form: sends to info@lunitatucumana.com through FormSubmit (works on GitHub Pages) -->
     <form class="form" name="contacto" method="POST" action="https://formsubmit.co/info@lunitatucumana.com">
-      <input type="hidden" name="_subject" value="Nueva propuesta de marca — lunitatucumana.com">
+      <input type="hidden" name="_subject" value="New brand inquiry — lunitatucumana.com">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://lunitatucumana.com/gracias.html">
-      <p class="form-hidden"><label>No completar: <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
+      <input type="hidden" name="language" value="English">
+      <p class="form-hidden"><label>Leave blank: <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
 
       <div class="form-row">
-        <label>Nombre<input type="text" name="nombre" placeholder="Tu nombre" autocomplete="name" required></label>
-        <label>Empresa / marca<input type="text" name="empresa" placeholder="Nombre de la marca" autocomplete="organization" required></label>
+        <label><span data-i18n="fName">Name</span><input type="text" name="name" placeholder="Your name" data-i18n-ph="fNamePh" autocomplete="name" required></label>
+        <label><span data-i18n="fCompany">Company / brand</span><input type="text" name="company" placeholder="Brand name" data-i18n-ph="fCompanyPh" autocomplete="organization" required></label>
       </div>
-      <label>Email corporativo<input type="email" name="email" placeholder="nombre@empresa.com" autocomplete="email" required></label>
-      <label>¿Qué productos querés distribuir?<textarea name="mensaje" rows="4" placeholder="Contanos sobre la línea, volúmenes y políticas de reventa" required></textarea></label>
-      <button type="submit" class="btn btn--noche">Enviar propuesta</button>
+      <label><span data-i18n="fEmail">Work email</span><input type="email" name="email" placeholder="name@company.com" data-i18n-ph="fEmailPh" autocomplete="email" required></label>
+      <label><span data-i18n="fMsg">Which products would you like us to resell?</span><textarea name="message" rows="4" placeholder="Tell us about your product line, volumes and reseller policies" data-i18n-ph="fMsgPh" required></textarea></label>
+      <button type="submit" class="btn btn--noche" data-i18n="fSend">Send proposal</button>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>

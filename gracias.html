@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>¡Gracias! — Lunita Tucumana LLC</title>
+  <title>Thank you! — Lunita Tucumana LLC</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,11 +16,23 @@
     <div class="hero-ring hero-ring--1" aria-hidden="true"></div>
     <div class="container" style="position:relative;display:flex;flex-direction:column;gap:24px;max-width:720px;padding-top:80px;padding-bottom:80px">
       <img src="img/logo.svg" width="56" height="56" alt="">
-      <p class="eyebrow eyebrow--luna">Mensaje recibido</p>
-      <h1>¡Gracias por escribirnos!</h1>
-      <p class="hero-lead">Recibimos tu propuesta. Te respondemos dentro de un día hábil.</p>
-      <div class="hero-actions"><a href="/" class="btn btn--luna">Volver al inicio</a></div>
+      <p class="eyebrow eyebrow--luna" id="t-eyebrow">Message received</p>
+      <h1 id="t-title">Thank you for reaching out!</h1>
+      <p class="hero-lead" id="t-lead">We received your proposal and will reply within one business day.</p>
+      <div class="hero-actions"><a href="/" class="btn btn--luna" id="t-back">Back to home</a></div>
     </div>
   </main>
+  <script>
+    try {
+      if (localStorage.getItem('lt-lang') === 'es') {
+        document.documentElement.lang = 'es';
+        document.title = '¡Gracias! — Lunita Tucumana LLC';
+        document.getElementById('t-eyebrow').textContent = 'Mensaje recibido';
+        document.getElementById('t-title').textContent = '¡Gracias por escribirnos!';
+        document.getElementById('t-lead').textContent = 'Recibimos tu propuesta. Te respondemos dentro de un día hábil.';
+        document.getElementById('t-back').textContent = 'Volver al inicio';
+      }
+    } catch (e) {}
+  </script>
 </body>
 </html>
